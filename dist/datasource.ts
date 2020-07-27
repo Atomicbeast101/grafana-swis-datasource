@@ -16,6 +16,7 @@ export class SwisDatasource {
     this.templateSrv = templateSrv;
     this.withCredentials = instanceSettings.withCredentials;
     this.headers = { 'Content-Type': 'application/json' };
+    console.log('1: ' + instanceSettings.basicAuth);
     if (typeof instanceSettings.basicAuth === 'string' && instanceSettings.basicAuth.length > 0) {
       this.headers['Authorization'] = instanceSettings.basicAuth;
     }
@@ -172,6 +173,7 @@ export class SwisDatasource {
 
     // metric has limitations on data output
     if (query.format === 'time_series') {
+      console.log('2: ' + columns);
       if (columns.length < 2) {
         // return { status: 'error', message: 'There has to be at least 2 columns' };
         throw new Error('There has to be at least 2 columns defined for Series');
@@ -245,6 +247,7 @@ export class SwisDatasource {
     var valueIndex = metadata.columns.findIndex(n => n.name === '__value');
     
     //{} text:.. value: ..}
+    console.log('3: ' + metadata.columns);
     if (metadata.columns.length === 2 && textIndex !== -1 && valueIndex !== -1) {
       var text = metadata.columns[textIndex];
       var value = metadata.columns[valueIndex];
@@ -272,6 +275,7 @@ export class SwisDatasource {
   correctTime(dtString:string){
       // SWIS sometimes return time including time zone 02:00:34.675+3:00 instead of pure UTC      
       var dtZoneIndex = dtString.indexOf('+');            
+      console.log('4: ' + dtString);
       if (dtZoneIndex !== -1) {        
         dtString = dtString.substr(0, dtZoneIndex) + 'Z';
       }
@@ -296,8 +300,7 @@ export class SwisDatasource {
       var row = Object.keys(rowData).map(n => rowData[n]);
       var date = this.correctTime(row[metadata.timeColumnIndex]);
 
-      console.log('processQueryResultMetric: ' + metadata.columns);
-      
+      console.log('5: ' + metadata.columns);
       for (var i = 0; i < metadata.columns.length; i++) {
         if (i === metadata.timeColumnIndex || i === metadata.metricIndex)
           continue;
