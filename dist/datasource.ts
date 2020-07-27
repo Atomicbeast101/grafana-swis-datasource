@@ -61,10 +61,10 @@ export class SwisDatasource {
       };
     });
 
-    console.log(queries);
+    console.log(queries.length);
     console.log('********************');
 
-    if (Object.keys(queries).length === 0) {      
+    if (queries.length === 0) {      
       return this.q.when({ data: [] });
     }
 

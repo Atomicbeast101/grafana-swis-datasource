@@ -56,9 +56,9 @@ System.register(["lodash"], function(exports_1) {
                             format: item.format,
                         };
                     });
-                    console.log(queries);
+                    console.log(queries.length);
                     console.log('********************');
-                    if (Object.keys(queries).length === 0) {
+                    if (queries.length === 0) {
                         return this.q.when({ data: [] });
                     }
                     var promises = queries.map(function (query) { return _this.doQuery(query, options); });
