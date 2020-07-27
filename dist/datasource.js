@@ -56,8 +56,8 @@ System.register(["lodash"], function(exports_1) {
                             format: item.format,
                         };
                     });
-                    console.log(queries.length);
-                    console.log('********************');
+                    //console.log(queries.length);
+                    //console.log('********************');
                     if (queries.length === 0) {
                         return this.q.when({ data: [] });
                     }
@@ -259,6 +259,7 @@ System.register(["lodash"], function(exports_1) {
                         var rowData = _a[_i];
                         var row = Object.keys(rowData).map(function (n) { return rowData[n]; });
                         var date = this.correctTime(row[metadata.timeColumnIndex]);
+                        console.log('processQueryResultMetric: ' + metadata.columns);
                         for (var i = 0; i < metadata.columns.length; i++) {
                             if (i === metadata.timeColumnIndex || i === metadata.metricIndex)
                                 continue;

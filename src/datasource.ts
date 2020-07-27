@@ -61,8 +61,8 @@ export class SwisDatasource {
       };
     });
 
-    console.log(queries.length);
-    console.log('********************');
+    //console.log(queries.length);
+    //console.log('********************');
 
     if (queries.length === 0) {      
       return this.q.when({ data: [] });
@@ -295,6 +295,8 @@ export class SwisDatasource {
     for (var rowData of res.data.results) {
       var row = Object.keys(rowData).map(n => rowData[n]);
       var date = this.correctTime(row[metadata.timeColumnIndex]);
+
+      console.log('processQueryResultMetric: ' + metadata.columns);
       
       for (var i = 0; i < metadata.columns.length; i++) {
         if (i === metadata.timeColumnIndex || i === metadata.metricIndex)
