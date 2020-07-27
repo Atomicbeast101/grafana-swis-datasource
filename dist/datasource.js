@@ -56,8 +56,8 @@ System.register(["lodash"], function(exports_1) {
                             format: item.format,
                         };
                     });
-                    //console.log(JSON.stringify(queries));
-                    //console.log('********************');
+                    console.log(JSON.stringify(queries));
+                    console.log('********************');
                     if (queries.length === 0) {
                         return this.q.when({ data: [] });
                     }
@@ -66,7 +66,7 @@ System.register(["lodash"], function(exports_1) {
                         .then(function (values) {
                         var data = [];
                         values.map(function (n) { data = data.concat(n); });
-                        // console.log( JSON.stringify(data)); 
+                        console.log(JSON.stringify(data));
                         return { data: data };
                     });
                 };

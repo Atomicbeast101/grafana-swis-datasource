@@ -61,8 +61,8 @@ export class SwisDatasource {
       };
     });
 
-    //console.log(JSON.stringify(queries));
-    //console.log('********************');
+    console.log(JSON.stringify(queries));
+    console.log('********************');
 
     if (queries.length === 0) {      
       return this.q.when({ data: [] });
@@ -76,7 +76,7 @@ export class SwisDatasource {
 
         values.map(n => { data = data.concat(n); });
 
-        // console.log( JSON.stringify(data)); 
+        console.log( JSON.stringify(data)); 
         return { data: data };
       });
   }
