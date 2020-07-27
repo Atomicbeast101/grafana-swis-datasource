@@ -1,0 +1,34 @@
+{
+  "name": "SolarWinds SWIS DataSource",
+  "id": "solarwinds-swis-datasource",
+  "type": "datasource",
+
+  "partials": {
+    "config": "public/app/plugins/datasource/swis/partials/config.html"
+  },
+
+  "metrics": true,  
+  "annotations": true,  
+
+  "info": {
+    "description": "DataSource plugin for SolarWinds via SWIS HTTP REST endpoint",
+    "author": {
+      "name": "Eduard Tichy"
+    },
+    "logos": {
+      "small": "img/solarwinds-icon.svg",
+      "large": "img/solarwinds-icon.svg"
+    },
+    "links": [
+      {"name": "GitHub", "url": "https://github.com/etichy/grafana-swis-datasource"},
+      {"name": "License", "url": "https://github.com/etichy/grafana-swis-datasource/blob/master/LICENSE"}
+    ],
+    "version": "1.0.0",
+    "updated": "2019-05-24"
+  },
+
+  "dependencies": {
+    "grafanaVersion": "5.x.x",
+    "plugins": [ ]
+  }
+}
