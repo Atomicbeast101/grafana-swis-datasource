@@ -17,7 +17,7 @@ export class SwisDatasource {
     this.withCredentials = instanceSettings.withCredentials;
     this.headers = { 'Content-Type': 'application/json' };
     console.log('1: ' + instanceSettings.basicAuth);
-    if (typeof instanceSettings.basicAuth === 'string' && instanceSettings.basicAuth.length > 0) {
+    if (typeof instanceSettings.basicAuth === 'string') {
       this.headers['Authorization'] = instanceSettings.basicAuth;
     }
   }
